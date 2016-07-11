@@ -154,7 +154,15 @@ namespace Karthus
                                     a.Slot == SpellSlot.Q || a.Slot == SpellSlot.W || a.Slot == SpellSlot.E ||
                                     a.Slot == SpellSlot.R))
                     {
-                        
+                        if (spell.Slot == SpellSlot.Q)
+                        {
+                            if(enemy.ChampionName == "Thresh")
+                            {
+                            HarassMenu.Add("ThreshQLeap",
+                                new CheckBox(enemy.ChampionName + " - Q - " + spell.Name, true));
+                            LaneClearMenu.Add("ThreshQLeap",
+                                new CheckBox(enemy.ChampionName + " - Q - " + spell.Name, true)); 
+                        }
                     }                
             }    
             /*
