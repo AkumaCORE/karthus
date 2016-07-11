@@ -146,7 +146,7 @@ namespace Karthus
             LaneMenu.Add("LHQPercent", new Slider("Use Q Mana %", 30, 0, 100));
                 
             foreach (var enemy in EntityManager.Heroes.Enemies.Where(a => a.Team != Player.Instance.Team))
-                {
+            {
                     foreach (
                         var spell in
                             enemy.Spellbook.Spells.Where(
@@ -164,7 +164,7 @@ namespace Karthus
                                 new CheckBox(enemy.ChampionName + " - Q - " + spell.Name, true)); 
                             }
                     }
-                }
+            }
             /*
             JungleMenu = menuIni.AddSubMenu("JungleClear");
             JungleMenu.Add("JUse_Q", new CheckBox("Use Q"));
