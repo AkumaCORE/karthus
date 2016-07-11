@@ -156,6 +156,10 @@ namespace Karthus
                     {
                         if (spell.Slot == SpellSlot.Q)
                         {
+                            if(enemy.ChampionName == "Thresh")
+                            {
+                                
+                            }
 
                         }    
                     }
