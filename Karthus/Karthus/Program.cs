@@ -180,7 +180,7 @@ namespace Karthus
                                {
                                 HarassMenu.Add(spell.SData.Name,
                                     new CheckBox(enemy.ChampionName + " - Q - " + spell.Name, false));
-                                LaneClearMenu.Add(spell.SData.Name,
+                                LaneMenu.Add(spell.SData.Name,
                                     new CheckBox(enemy.ChampionName + " - Q - " + spell.Name, false));
                                }
                                 
