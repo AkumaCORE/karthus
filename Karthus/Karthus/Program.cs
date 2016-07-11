@@ -70,6 +70,8 @@ namespace Karthus
         private static AIHeroClient eTarget;
 
         private static bool nowE = false;
+        
+        public static AIHeroClient CurrentTarget;
 
 
         public static void Execute()
@@ -323,14 +325,9 @@ namespace Karthus
             }
             if (!Sender.IsDashing() && Sender.Type == GameObjectType.AIHeroClient && Sender.IsValidTarget(Q.Range) && Q.IsReady() && Sender.IsEnemy)
             {
-                if (ObjectManager.Player.Position.Distance(qTarget.ServerPosition) <= 800)
-                {
-                    Q.Cast(Sender.ServerPosition + 75);
-                }
-                if (ObjectManager.Player.Position.Distance(qTarget.ServerPosition) > 800)
-                {
-                    Q.Cast(Player.Instance.Position.Extend(qTarget.ServerPosition, 875).To3D());
-                }
+
+                Q.Cast(Sender.ServerPosition);
+                
             } 
         }
         private static void Obj_AI_Base_OnProcessSpellCast2(Obj_AI_Base sender, GameObjectProcessSpellCastEventArgs args)
@@ -340,7 +337,7 @@ namespace Karthus
             {
                return;
             }
-            if (W.IsReady() && !sender.IsInvulnerable && args.Target != CurrentTarget && !sender.IsDashing() && sender == CurrentTarget)
+            if (Q.IsReady() && !sender.IsInvulnerable && args.Target != CurrentTarget && !sender.IsDashing() && sender == CurrentTarget)
             {
 
                 
@@ -351,12 +348,12 @@ namespace Karthus
                         if (sender.IsValidTarget(875) && !LaneMenu[args.SData.Name].Cast<CheckBox>().CurrentValue)
                         {
                             Chat.Print("Pos Cast:"+args.SData.Name);
-                            W.Cast(sender.ServerPosition);
+                            Q.Cast(sender.ServerPosition);
                         }
                         else if (args.End.Distance(Player.Instance.Position) <= 875 && LaneMenu[args.SData.Name].Cast<CheckBox>().CurrentValue)
                         {
                             Chat.Print("End Cast:"+args.SData.Name);
-                            W.Cast(args.End);
+                            Q.Cast(args.End);
                         }  
                     }
 
