@@ -163,7 +163,7 @@ namespace Karthus
                             LaneMenu.Add("ThreshQLeap",
                                 new CheckBox(enemy.ChampionName + " - Q - " + spell.Name, true)); 
                             }
-
+                    }
                 }
             /*
             JungleMenu = menuIni.AddSubMenu("JungleClear");
