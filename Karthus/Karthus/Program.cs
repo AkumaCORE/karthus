@@ -144,6 +144,135 @@ namespace Karthus
             LaneMenu.Add("LUse_Q", new CheckBox("Use Q"));
             LaneMenu.Add("LAA", new CheckBox("Disable AA if Q is Ready", false));
             LaneMenu.Add("LHQPercent", new Slider("Use Q Mana %", 30, 0, 100));
+            foreach (var enemy in EntityManager.Heroes.Enemies.Where(a => a.Team != Player.Instance.Team))
+                {
+                    foreach (
+                        var spell in
+                            enemy.Spellbook.Spells.Where(
+                                a =>
+                                    a.Slot == SpellSlot.Q || a.Slot == SpellSlot.W || a.Slot == SpellSlot.E ||
+                                    a.Slot == SpellSlot.R))
+                    {
+                        if (spell.Slot == SpellSlot.Q)
+                        {
+                            if(enemy.ChampionName == "Thresh")
+                            {
+                            HarassMenu.Add("ThreshQLeap",
+                                new CheckBox(enemy.ChampionName + " - Q - " + spell.Name, true));
+                            LaneClearMenu.Add("ThreshQLeap",
+                                new CheckBox(enemy.ChampionName + " - Q - " + spell.Name, true)); 
+                            }
+                            else if(enemy.ChampionName == "Elise")
+                            {
+                            HarassMenu.Add("EliseHumanQ",
+                                new CheckBox(enemy.ChampionName + " - Q - " + spell.Name, true));
+                            LaneClearMenu.Add("EliseHumanQ",
+                                new CheckBox(enemy.ChampionName + " - Q - " + spell.Name, true));
+                            HarassMenu.Add("EliseSpiderQLast",
+                                new CheckBox(enemy.ChampionName + " - Q - " + spell.Name, true));
+                            LaneClearMenu.Add("EliseSpiderQLast",
+                                new CheckBox(enemy.ChampionName + " - Q - " + spell.Name, true));
+                            }
+                            
+                           else
+                           {
+                            HarassMenu.Add(spell.SData.Name,
+                                new CheckBox(enemy.ChampionName + " - Q - " + spell.Name, false));
+                            LaneClearMenu.Add(spell.SData.Name,
+                                new CheckBox(enemy.ChampionName + " - Q - " + spell.Name, false));
+                           }
+                            
+                        }
+                        else if (spell.Slot == SpellSlot.W)
+                        {
+                            if(enemy.ChampionName == "Leblanc")
+                            {
+                            HarassMenu.Add("leblancslidereturn",
+                                new CheckBox(enemy.ChampionName + " - W - " + spell.Name, true));
+                            LaneClearMenu.Add("leblancslidereturn",
+                                new CheckBox(enemy.ChampionName + " - W - " + spell.Name, true)); 
+                            HarassMenu.Add("leblancslidereturnM",
+                                new CheckBox(enemy.ChampionName + " - W - " + spell.Name, true));
+                            LaneClearMenu.Add("leblancslidereturnM",
+                                new CheckBox(enemy.ChampionName + " - W - " + spell.Name, true)); 
+                            }
+                            else if(enemy.ChampionName == "Zed")
+                            {
+                            HarassMenu.Add("ZedW2",
+                                new CheckBox(enemy.ChampionName + " - W - " + spell.Name, true));
+                            LaneClearMenu.Add("ZedW2",
+                                new CheckBox(enemy.ChampionName + " - W - " + spell.Name, true)); 
+
+                            }
+                            else if(enemy.ChampionName == "Thresh")
+                            {
+                            HarassMenu.Add("LanternWAlly",
+                                new CheckBox(enemy.ChampionName + " - W - " + spell.Name, true));
+                            LaneClearMenu.Add("LanternWAlly",
+                                new CheckBox(enemy.ChampionName + " - W - " + spell.Name, true)); 
+                            }
+                            else if(enemy.ChampionName == "Elise")
+                            {
+                            HarassMenu.Add("EliseHumanW",
+                                new CheckBox(enemy.ChampionName + " - W - " + spell.Name, true));
+                            LaneClearMenu.Add("EliseHumanW",
+                                new CheckBox(enemy.ChampionName + " - W - " + spell.Name, true)); 
+                            }
+                            else
+                            {
+                            HarassMenu.Add(spell.SData.Name,
+                                new CheckBox(enemy.ChampionName + " - W - " + spell.Name, false));
+                            LaneClearMenu.Add(spell.SData.Name,
+                                new CheckBox(enemy.ChampionName + " - W - " + spell.Name, false));     
+                            }    
+                        }
+                        else if (spell.Slot == SpellSlot.E)
+                        {
+                            if(enemy.ChampionName == "Fizz")
+                            {
+                            HarassMenu.Add("FizzJumpTwo",
+                                new CheckBox(enemy.ChampionName + " - E - " + spell.Name, true));
+                            LaneClearMenu.Add("FizzJumpTwo",
+                                new CheckBox(enemy.ChampionName + " - E - " + spell.Name, true));
+                            }  
+                            else if(enemy.ChampionName == "Elise")
+                            {
+                            HarassMenu.Add("EliseSpiderEDescent",
+                                new CheckBox(enemy.ChampionName + " - E - " + spell.Name, true));
+                            LaneClearMenu.Add("EliseSpiderEDescent",
+                                new CheckBox(enemy.ChampionName + " - E - " + spell.Name, true));
+                            HarassMenu.Add("EliseHumanE",
+                                new CheckBox(enemy.ChampionName + " - E - " + spell.Name, true));
+                            LaneClearMenu.Add("EliseHumanE",
+                                new CheckBox(enemy.ChampionName + " - E - " + spell.Name, true));
+                            }  
+                            else
+                            {
+                            HarassMenu.Add(spell.SData.Name,
+                                new CheckBox(enemy.ChampionName + " - E - " + spell.Name, false));
+                            LaneClearMenu.Add(spell.SData.Name,
+                                new CheckBox(enemy.ChampionName + " - E - " + spell.Name, false));
+                            }    
+                        }
+                        else if (spell.Slot == SpellSlot.R)
+                        {
+                            if(enemy.ChampionName == "Zed")
+                            {
+                            HarassMenu.Add("ZedR2",
+                                new CheckBox(enemy.ChampionName + " - R - " + spell.Name, true));
+                            LaneClearMenu.Add("ZedR2",
+                                new CheckBox(enemy.ChampionName + " - R - " + spell.Name, true)); 
+                            }    
+                            else
+                            {
+                            HarassMenu.Add(spell.SData.Name,
+                                new CheckBox(enemy.ChampionName + " - R - " + spell.Name, false));
+                            LaneClearMenu.Add(spell.SData.Name,
+                                new CheckBox(enemy.ChampionName + " - R - " + spell.Name, false));
+                            }        
+                        }
+                    }
+}
             /*
             JungleMenu = menuIni.AddSubMenu("JungleClear");
             JungleMenu.Add("JUse_Q", new CheckBox("Use Q"));
