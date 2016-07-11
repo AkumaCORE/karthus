@@ -158,10 +158,7 @@ namespace Karthus
                         {
                             if(enemy.ChampionName == "Thresh")
                             {
-                            HarassMenu.Add("ThreshQLeap",
-                                new CheckBox(enemy.ChampionName + " - Q - " + spell.Name, true));
-                            LaneMenu.Add("ThreshQLeap",
-                                new CheckBox(enemy.ChampionName + " - Q - " + spell.Name, true)); 
+
                             }
                     }
             }
