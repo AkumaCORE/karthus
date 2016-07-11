@@ -145,7 +145,7 @@ namespace Karthus
             LaneMenu.Add("LAA", new CheckBox("Disable AA if Q is Ready", false));
             LaneMenu.Add("LHQPercent", new Slider("Use Q Mana %", 30, 0, 100));
                 
-            foreach (var enemy in EntityManager.Heroes.Enemies.Where(a => a.Team != Player.Instance.Team))
+            foreach (var enemy in EntityManager.Heroes.Enemies.Where(a => a.Team != player.Instance.Team))
                 {
                     foreach (
                         var spell in
