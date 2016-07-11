@@ -145,39 +145,9 @@ namespace Karthus
             LaneMenu.Add("LAA", new CheckBox("Disable AA if Q is Ready", false));
             LaneMenu.Add("LHQPercent", new Slider("Use Q Mana %", 30, 0, 100));
                 
-            foreach (var enemy in EntityManager.Heroes.Enemies.Where(a => a.Team != player.Instance.Team))
+            foreach (var enemy in EntityManager.Heroes.Enemies.Where(a => a.Team != Player.Instance.Team))
             {
-                foreach (
-                    var spell in
-                        enemy.Spellbook.Spells.Where(
-                            a =>
-                                a.Slot == SpellSlot.Q || a.Slot == SpellSlot.W || a.Slot == SpellSlot.E ||
-                                a.Slot == SpellSlot.R))
-                {
-                    if (spell.Slot == SpellSlot.Q)
-                    {
-                        if(enemy.ChampionName == "Thresh")
-                        {
-                        HarassMenu.Add("ThreshQLeap",
-                            new CheckBox(enemy.ChampionName + " - Q - " + spell.Name, true));
-                        LaneClearMenu.Add("ThreshQLeap",
-                            new CheckBox(enemy.ChampionName + " - Q - " + spell.Name, true)); 
-                        }
-                        else if(enemy.ChampionName == "Elise")
-                        {
-                        HarassMenu.Add("EliseHumanQ",
-                            new CheckBox(enemy.ChampionName + " - Q - " + spell.Name, true));
-                        LaneClearMenu.Add("EliseHumanQ",
-                            new CheckBox(enemy.ChampionName + " - Q - " + spell.Name, true));
-                        HarassMenu.Add("EliseSpiderQLast",
-                            new CheckBox(enemy.ChampionName + " - Q - " + spell.Name, true));
-                        LaneClearMenu.Add("EliseSpiderQLast",
-                            new CheckBox(enemy.ChampionName + " - Q - " + spell.Name, true));
-                        }
-                            
 
-                    }
-                }
             }    
             /*
             JungleMenu = menuIni.AddSubMenu("JungleClear");
